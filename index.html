@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
-    <link rel="shortcut icon" type="x-icon" href="/Users/ravindu/Github/Portfolio/assets/images/Color_logo_no_ackground.png">
+    <link rel="shortcut icon" type="x-icon" href="assets/images/Color_logo_no_ackground.png">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -23,7 +23,8 @@
         <div class="max-width">
             <div class="logo"><a href="#"><span>R</span>avindu.</a></div>
             <ul class="menu">
-                <li><a href="#home" class="menu-btn">Home</a></li>
+                <li><a href="#particles-js" class="menu-btn">Home</a></li>
+                <!-- <li><a href="#home" class="menu-btn">Home</a></li> -->
                 <li><a href="#about" class="menu-btn">About</a></li>
                 <li><a href="#Projects" class="menu-btn">Projects</a></li>
                 <li><a href="#contact" class="menu-btn">Contact</a></li>
@@ -38,13 +39,15 @@
     <section class="home" id="particles-js">
         <div class="max-width">
             <div class="home-content">
-                <div class="text-1">Hello, my name is</div>
-                <div class="text-2">Ravindu Layanga</div>
+                <div class="text-2 js-name">Ravindu Layanga</div>
                 <div class="text-3">And I'm a <span class="typing"></span></div>
-                <a href="https://drive.google.com/file/d/1rrOc9BOkiZuQ4rAQqudPqYBjk4Fs7Tjz/view?usp=drive_link" target=”_blank”>Download CV</a>
+                <a class="js-cv-link" href="https://drive.google.com/file/d/1rrOc9BOkiZuQ4rAQqudPqYBjk4Fs7Tjz/view?usp=drive_link"
+                target="_blank" rel="noopener">Download CV</a>  
             </div>
         </div>
     </section>
+
+
 
     <!-- about section start -->
     <section class="about" id="about">
@@ -52,26 +55,33 @@
             <h2 class="title">About me</h2>
             <div class="about-content">
                 <div class="column left">
-                    <img src="assets/images/ravindu.jpg" alt="my picture">
+                    <img src="assets/images/ravindu.jpg" alt="my picture" class="js-photo">
                 </div>
                 <div class="column right">
-                    <div class="text">I'm Ravindu and I'm a <span class="typing-2"></span></div>
-                    <p>I am a third-year undergraduate student majoring in Computer Science with a strong foundation in programming languages such as Java, Python, and JavaScript, as well as web development languages. I am a quick learner and a team player who is constantly eager to acquire new technologies. I have a solid understanding of software development techniques and object-oriented programming. In my free time, I enjoy working on personal projects to further develop my skills. I'm passionate about using technology to address real-world issues, and I love the opportunities that software engineering offers.</p>
+                    <div class="text">I'm <span class="name-accent js-first-name">Ravindu</span> and I'm a <span class="typing-2"></span></div>
+                    <p class="js-bio">I am a third-year undergraduate student majoring in Computer Science with a strong foundation in programming languages such as Java, Python, and JavaScript, as well as web development languages. I am a quick learner and a team player who is constantly eager to acquire new technologies. I have a solid understanding of software development techniques and object-oriented programming. In my free time, I enjoy working on personal projects to further develop my skills. I'm passionate about using technology to address real-world issues, and I love the opportunities that software engineering offers.</p>
                     <br>
                 </div>
-                <div class="social-icons" id="about">
-                    <a href="https://www.linkedin.com/in/ravindulayanga" target="_blank"><i class="fab fa-linkedin"></i></a>&nbsp;&nbsp;
-                    <a href="https://github.com/RavinduLayanga" target="_blank" ><i class="fab fa-github" ></i></a>&nbsp;&nbsp;
-                    <a href="https://www.facebook.com/profile.php?id=100009469044344&mibextid=ZbWKwL" target="_blank"><i class="fab fa-facebook"></i></a>&nbsp;&nbsp;
-                    <a href="https://instagram.com/ravindu_layanga?utm_source=qr&igshid=ZDc4ODBmNjlmNQ%3D%3D" target="_blank"><i class="fab fa-instagram"></i></a>
+                
+                <div class="social-icons js-about-links">
+                    <a href="https://www.linkedin.com/in/ravindulayanga" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>&nbsp;&nbsp;
+                    <a href="https://github.com/RavinduLayanga" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>&nbsp;&nbsp;
+                    <a href="https://www.facebook.com/profile.php?id=100009469044344&mibextid=ZbWKwL" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>&nbsp;&nbsp;
+                    <a href="https://instagram.com/ravindu_layanga?utm_source=qr&igshid=ZDc4ODBmNjlmNQ%3D%3D" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Projects section start -->
+    
+
     <section class="Projects" id="Projects">
         <div class="max-width">
+            <h2 class="title">Projects</h2>
+            <div class="carousel owl-carousel" id="github-carousel"></div>
+        </div>
+        <!-- <div class="max-width">
             <h2 class="title">Projects</h2>
             <div class="carousel owl-carousel">
                 <div class="card">
@@ -142,7 +152,7 @@
                     </a>
                 </div>
             </div>
-        </div>
+        </div> -->
     </section>
     
     <!-- contact section start -->
@@ -171,7 +181,7 @@
                             <i class="fas fa-envelope"></i>
                             <div class="info">
                                 <div class="head">Email</div>
-                                <div class="sub-title"><a href="ravindu.20210572@iit.ac.lk" target="_blank" style="color: #fff;">ravindu.20210572@iit.ac.lk</a></div>
+                                <div class="sub-title"><a href="mailto:ravindu.20210572@iit.ac.lk" target="_blank" style="color: #fff;">ravindu.20210572@iit.ac.lk</a></div>
                             </div>
                         </div>
                     </div>
@@ -221,7 +231,7 @@
 
     <!-- footer section start -->
     <footer>
-        <span>Created By <span style="color:#12f7ff;">Ravindu Layanga</span> |  2023 All rights reserved.</span>
+        <span>Created By <span style="color:#12f7ff;">Ravindu Layanga</span> |  2025 All rights reserved.</span>
         <div class="social-icons">
             <a href="https://www.linkedin.com/in/ravindulayanga" target="_blank"><i class="fab fa-linkedin"></i></a>&nbsp;&nbsp;
             <a href="https://github.com/RavinduLayanga" target="_blank"><i class="fab fa-github"></i></a>&nbsp;&nbsp;
