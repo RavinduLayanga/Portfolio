@@ -1,0 +1,97 @@
+name: Build repos.json
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 00:00 Asia/Colombo (UTC+05:30) 
+    - cron: "30 18 * * *"
+  push:
+    branches: [ main ]
+    paths:
+      - ".github/workflows/build-repos-json.yml"
+      - "assets/**"
+      - "index.html"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      GH_USER: RavinduLayanga  
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate assets/data/github_repos.json (public only)
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ github.token }}
+          script: |
+            const fs = require('fs');
+            const path = 'assets/data/github_repos.json';
+            const user = (process.env.GH_USER || context.repo.owner).trim().replace(/^@/,'');
+            if (!/^[A-Za-z0-9-]{1,39}$/.test(user)) {
+              core.setFailed(`GH_USER is invalid: "${user}"`);
+              return;
+            }
+
+            const MAX_REPOS = 10;
+            const skip = new Set([user.toLowerCase(), '.github', `${user.toLowerCase()}.github.io`]);
+
+            // list public repos for the user (private are excluded)
+            const all = await github.paginate(github.rest.repos.listForUser, {
+              username: user, per_page: 100, sort: 'updated', direction: 'desc'
+            });
+
+            let repos = all
+              .filter(r => !r.private && !r.fork && !r.archived && !r.is_template && !skip.has(r.name.toLowerCase()))
+              .slice(0, MAX_REPOS);
+
+            async function mapLimit(items, limit, worker) {
+              let i = 0; const out = new Array(items.length);
+              await Promise.all(Array.from({length: Math.min(limit, items.length)}).map(async () => {
+                while (i < items.length) { const idx = i++; out[idx] = await worker(items[idx], idx); }
+              }));
+              return out;
+            }
+
+            repos = await mapLimit(repos, 6, async (r) => {
+              // languages
+              let langs = [];
+              try {
+                const res = await github.request('GET {url}', { url: r.languages_url });
+                langs = Object.entries(res.data).sort((a,b)=>b[1]-a[1]).map(([k])=>k);
+              } catch {}
+              // topics
+              let topics = [];
+              try {
+                const t = await github.rest.repos.getAllTopics({ owner: r.owner.login, repo: r.name });
+                topics = t.data.names || [];
+              } catch {}
+
+              return {
+                name: r.name,
+                full_name: r.full_name,
+                html_url: r.html_url,
+                homepage: r.homepage,
+                description: r.description,
+                stargazers_count: r.stargazers_count,
+                created_at: r.created_at,
+                updated_at: r.updated_at,
+                pushed_at: r.pushed_at,
+                owner: { login: r.owner.login },
+                _languages: langs,
+                _topics: topics
+              };
+            });
+
+            fs.mkdirSync('assets/data', { recursive: true });
+            fs.writeFileSync(path, JSON.stringify(repos, null, 2));
+            core.info(`Wrote ${path} with ${repos.length} repos`);
+
+      - name: Commit file if changed
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: update github_repos.json"
+          file_pattern: assets/data/github_repos.json
