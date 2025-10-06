@@ -1,0 +1,42 @@
+{
+  "profile": {
+    "name": "Ravindu Layanga",
+    "roles": ["Software Engineer","Backend Developer","Frontend Developer"],
+    "cv_url": "https://drive.google.com/file/d/1rrOc9BOkiZuQ4rAQqudPqYBjk4Fs7Tjz/view?usp=drive_link",
+    "photo": "assets/images/ravindu.jpg"
+  },
+  "about": {
+    "bio": "Third-year CS undergraduate focused on Java, Python, JavaScript and modern web development. Quick learner, team player, and passionate about turning ideas into products."
+  },
+  "links": {
+    "github": "https://github.com/RavinduLayanga",
+    "linkedin": "https://www.linkedin.com/in/ravindulayanga"
+  },
+  "skills": {
+    "Frontend": ["HTML5","CSS3","JavaScript","Bootstrap"],
+    "Backend": ["Java","Python","Flask"],
+    "Databases": ["MySQL","SQLite"],
+    "Tools": ["Git","GitHub","Figma"]
+  },
+  "projects": [
+    {
+      "title": "Scrib Sign Web Application",
+      "repo": "https://github.com/RavinduLayanga/Scrib-Sign",
+      "cover": "assets/images/sign language.jpg",
+      "updated": "2025-01-01",
+      "stars": 0,
+      "description": "Sign language web app prototype.",
+      "languages": ["Python","JavaScript","HTML","CSS","Flask"],
+      "frameworks": ["Bootstrap"]
+    },
+    {
+      "title": "Portfolio Website",
+      "repo": "https://github.com/RavinduLayanga/portfolio",
+      "cover": "assets/images/portfolio.jpg",
+      "updated": "2025-01-01",
+      "stars": 0,
+      "description": "This site.",
+      "languages": ["HTML","CSS","JavaScript"]
+    }
+  ]
+}
