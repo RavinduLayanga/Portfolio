@@ -3,7 +3,7 @@ name: Build repos.json
 on:
   workflow_dispatch:
   schedule:
-    # 00:00 Asia/Colombo (UTC+05:30) 
+    # 00:00 Asia/Colombo (UTC+05:30) = 18:30 UTC previous day
     - cron: "30 18 * * *"
   push:
     branches: [ main ]
@@ -19,33 +19,34 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      GH_USER: RavinduLayanga  
+      GH_USER: ${{ secrets.GH_USER }}
     steps:
       - uses: actions/checkout@v4
 
-      - name: Generate assets/data/github_repos.json (public only)
+      - name: Generate assets/data/github_repos.json
         uses: actions/github-script@v7
         with:
-          github-token: ${{ github.token }}
+          github-token: ${{ secrets.TOKEN }}
           script: |
             const fs = require('fs');
             const path = 'assets/data/github_repos.json';
-            const user = (process.env.GH_USER || context.repo.owner).trim().replace(/^@/,'');
+            const rawUser = process.env.GH_USER || context.repo.owner;
+            const user = String(rawUser).trim().replace(/^@/, '');
             if (!/^[A-Za-z0-9-]{1,39}$/.test(user)) {
-              core.setFailed(`GH_USER is invalid: "${user}"`);
+              core.setFailed(`GH_USER is invalid: "${rawUser}"`);
               return;
             }
 
             const MAX_REPOS = 10;
             const skip = new Set([user.toLowerCase(), '.github', `${user.toLowerCase()}.github.io`]);
 
-            // list public repos for the user (private are excluded)
+            // list repos for the user (no Search API)
             const all = await github.paginate(github.rest.repos.listForUser, {
               username: user, per_page: 100, sort: 'updated', direction: 'desc'
             });
 
             let repos = all
-              .filter(r => !r.private && !r.fork && !r.archived && !r.is_template && !skip.has(r.name.toLowerCase()))
+              .filter(r => !r.fork && !r.archived && !r.is_template && !skip.has(r.name.toLowerCase()))
               .slice(0, MAX_REPOS);
 
             async function mapLimit(items, limit, worker) {
@@ -57,32 +58,19 @@ jobs:
             }
 
             repos = await mapLimit(repos, 6, async (r) => {
-              // languages
-              let langs = [];
               try {
-                const res = await github.request('GET {url}', { url: r.languages_url });
-                langs = Object.entries(res.data).sort((a,b)=>b[1]-a[1]).map(([k])=>k);
-              } catch {}
-              // topics
-              let topics = [];
+                const langs = await github.request('GET {url}', { url: r.languages_url });
+                r._languages = Object.entries(langs.data).sort((a,b)=>b[1]-a[1]).map(([k])=>k);
+              } catch { r._languages = r.language ? [r.language] : []; }
               try {
-                const t = await github.rest.repos.getAllTopics({ owner: r.owner.login, repo: r.name });
-                topics = t.data.names || [];
-              } catch {}
-
+                const topics = await github.rest.repos.getAllTopics({ owner: r.owner.login, repo: r.name });
+                r._topics = topics.data.names || [];
+              } catch { r._topics = []; }
               return {
-                name: r.name,
-                full_name: r.full_name,
-                html_url: r.html_url,
-                homepage: r.homepage,
-                description: r.description,
-                stargazers_count: r.stargazers_count,
-                created_at: r.created_at,
-                updated_at: r.updated_at,
-                pushed_at: r.pushed_at,
-                owner: { login: r.owner.login },
-                _languages: langs,
-                _topics: topics
+                name: r.name, full_name: r.full_name, html_url: r.html_url, homepage: r.homepage,
+                description: r.description, stargazers_count: r.stargazers_count,
+                created_at: r.created_at, updated_at: r.updated_at, pushed_at: r.pushed_at,
+                owner: { login: r.owner.login }, _languages: r._languages, _topics: r._topics
               };
             });
 
@@ -90,7 +78,7 @@ jobs:
             fs.writeFileSync(path, JSON.stringify(repos, null, 2));
             core.info(`Wrote ${path} with ${repos.length} repos`);
 
-      - name: Commit file if changed
+      - name: Commit file
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: update github_repos.json"
