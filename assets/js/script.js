@@ -157,10 +157,21 @@ $(document).ready(function () {
       if (data.profile?.cv_url) $(".js-cv-link").attr("href", data.profile.cv_url);
       if (data.about?.bio) $(".js-bio").text(data.about.bio);
 
+
+
       const $links = $(".js-about-links").empty();
-      const mk = (href, label) => `<a href="${href}" target="_blank" rel="noopener"><i class="fab fa-${label.toLowerCase()}"></i></a>`;
-      if (data.links?.linkedin) $links.append(mk(data.links.linkedin, "linkedin"));
-      if (data.links?.github) $links.append(mk(data.links.github, "github"));
+      const mk = (href, icon) =>
+        `<a href="${href}" target="_blank" rel="noopener"><i class="fab fa-${icon}"></i></a>`;
+
+      const iconOrder = ["linkedin", "github", "facebook", "instagram"];
+      const icons = { linkedin: "linkedin", github: "github", facebook: "facebook", instagram: "instagram" };
+
+      const links = data.links || {};
+      iconOrder.forEach((key) => {
+        const href = links[key] || links[key?.toLowerCase?.()];
+        if (href) $links.append(mk(href, icons[key]));
+      });
+
 
       // projects (manual fallback)
       const projects = Array.isArray(data.projects) ? data.projects : [];
@@ -218,10 +229,8 @@ $(document).ready(function () {
   /* ---------- Boot ---------- */
   (async function init() {
     await renderFromLocalJSON();      
-    const usedCache = await renderFromCachedGH(); // replace with enriched repos if available
+    const usedCache = await renderFromCachedGH(); 
     if (!usedCache) {
-      // nothing else to do; page already shows manual cards
-      // (we intentionally avoid live GitHub fetch in browser to keep it token-free)
     }
   })();
 });
