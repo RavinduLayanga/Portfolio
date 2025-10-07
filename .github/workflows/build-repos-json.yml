@@ -3,7 +3,7 @@ name: Build repos.json
 on:
   workflow_dispatch:
   schedule:
-    # 00:00 Asia/Colombo (UTC+05:30) = 18:30 UTC previous day
+    # 00:00 Asia/Colombo (UTC+05:30) 
     - cron: "30 18 * * *"
   push:
     branches: [ main ]
