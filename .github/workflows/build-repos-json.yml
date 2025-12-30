@@ -40,7 +40,7 @@ jobs:
             const MAX_REPOS = 10;
             const skip = new Set([user.toLowerCase(), '.github', `${user.toLowerCase()}.github.io`]);
 
-            // list repos for the user (no Search API)
+            // list repos for the user 
             const all = await github.paginate(github.rest.repos.listForUser, {
               username: user, per_page: 100, sort: 'updated', direction: 'desc'
             });
@@ -76,6 +76,10 @@ jobs:
 
             fs.mkdirSync('assets/data', { recursive: true });
             fs.writeFileSync(path, JSON.stringify(repos, null, 2));
+            const data = JSON.parse(fs.readFileSync(path, 'utf8'));
+            data._last_update = new Date().toISOString();
+            fs.writeFileSync(path, JSON.stringify(data, null, 2));
+
             core.info(`Wrote ${path} with ${repos.length} repos`);
 
       - name: Commit file
