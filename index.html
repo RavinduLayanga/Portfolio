@@ -16,8 +16,8 @@
             bg: "#0b0f1a",
             glass: "rgba(255,255,255,0.08)",
             border: "rgba(255,255,255,0.2)",
-            primary: "#6c63ff",
-            accent: "#00e5ff"
+            primary: "var(--color-primary)",
+            accent: "var(--color-accent)"
                         // glass: "rgba(255,255,255,0.08)",
           //               border: "rgba(255,255,255,0.15)"
           // 
@@ -28,25 +28,39 @@
   </script>
 
 <style>
+    :root {
+      --color-primary: #6c63ff;
+      --color-accent: #00e5ff;
+    }
 
-.blob {
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Blob animation */
+    .blob {
   position: absolute;
-  width: 500px;
-  height: 500px;
+  width: 520px;
+  height: 520px;
   filter: blur(120px);
   opacity: 0.4;
-  background: #6c63ff;
-  animation: morph 20s ease-in-out infinite;
+  animation: morph 1s ease-in-out infinite;
+}
+
+.blob-1 {
+  background: var(--color-primary);
+  top: 15%;
+  left: 10%;
 }
 
 .blob-2 {
-  background: #00e5ff;
+  background: var(--color-accent);
   bottom: 10%;
   right: 15%;
-  animation-duration: 26s;
+  animation-duration: 1s;
 }
 
-@keyframes morph {
+/* @keyframes morph {
   0% {
     border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
   }
@@ -56,12 +70,78 @@
   100% {
     border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
   }
+} */
+@keyframes morph {
+  0% {
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+    transform: scale(1);
+  }
+  50% {
+    border-radius: 58% 42% 30% 70% / 55% 65% 35% 45%;
+    transform: scale(1.03);
+  }
+  100% {
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+    transform: scale(1);
+  }
 }
 
- 
+
+.nav-link {
+  position: relative;
+  color: #a1a1aa;              /* muted */
+  padding-bottom: 4px;         /* IMPORTANT: space for underline */
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: white;
+}
+
+/* underline (inside the nav pill) */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;                   /* 👈 INSIDE, not outside */
+  width: 0;
+  height: 2px;
+  background: var(--color-primary);
+  border-radius: 999px;
+  transform: translateX(-50%);
+  transition: width 0.3s ease, background 0.3s ease;
+}
+
+/* hover underline */
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* active link */
+.nav-link.active {
+  color: white;
+}
+
+/* active underline (stays visible) */
+.nav-link.active::after {
+  width: 100%;
+  background: var(--color-accent);
+}
+
+
+
+
+    
+
 </style>
 
+
+
+
+
 </head>
+
+
 
 <body class="bg-bg text-white font-[Inter] relative overflow-x-hidden">
 
@@ -81,20 +161,22 @@
   <div class="flex gap-8 px-8 py-4
               bg-glass backdrop-blur-xl
               border border-border
-              rounded-full text-sm text-gray-300">
+              rounded-full text-sm">
 
-    <a href="#hero" class="hover:text-white transition">Home</a>
-    <a href="#skills" class="hover:text-white transition">Skills</a>
-    <a href="#projects" class="hover:text-white transition">Projects</a>
-    <a href="#contact" class="hover:text-white transition">Contact</a>
+    <a href="#hero" class="nav-link">Home</a>
+    <a href="#about" class="nav-link">About</a>
+    <a href="#skills" class="nav-link">Skills</a>
+    <a href="#projects" class="nav-link">Projects</a>
+    <a href="#contact" class="nav-link">Contact</a>
 
   </div>
 </nav>
 
 
 
+
   <!-- HERO -->
-  <section class="min-h-screen flex items-center relative">
+  <section id="hero" class="min-h-screen flex items-center relative">
     <div class="max-w-7xl mx-auto px-6 relative">
 
       <!-- glow behind card -->
@@ -126,7 +208,7 @@
             Software Engineer focused on building clean, scalable web applications.
           </p>
 
-          <div class="mt-10 flex gap-4">
+          <!-- <div class="mt-10 flex gap-4">
             <a href="#projects"
                class="px-8 py-4 bg-primary rounded-xl font-medium
                       shadow-lg shadow-primary/30
@@ -140,11 +222,48 @@
                       hover:opacity-100 hover:bg-white/5 transition">
               Download CV
             </a>
-          </div>
+          </div> -->
+
+          <div class="mt-10 flex flex-wrap gap-4">
+
+  <!-- Primary -->
+  <a href="#projects"
+   class="group relative inline-flex items-center justify-center
+          px-9 py-4 rounded-xl font-medium text-white
+          bg-primary
+          border border-white/20
+          shadow-lg shadow-primary/30
+          transition-all duration-300
+          hover:shadow-primary/50 hover:-translate-y-0.5">
+
+  <!-- inner glass highlight -->
+  <span class="absolute inset-0 rounded-xl
+               bg-gradient-to-b from-white/20 to-transparent
+               opacity-40 pointer-events-none"></span>
+
+  <!-- button text -->
+  <span class="relative z-10">View Projects</span>
+</a>
+
+
+  <!-- Secondary -->
+  <a href="/assets/Thadiya_CV.pdf" download
+     class="inline-flex items-center justify-center
+            px-9 py-4 rounded-xl font-medium
+            border border-border
+            text-gray-300
+            transition-all duration-300
+            hover:text-white hover:bg-white/5 hover:-translate-y-0.5">
+
+    Download CV
+  </a>
+
+</div>
+
 
           <!-- vertical anchor -->
           <div class="mt-12 flex items-center gap-4 text-gray-400 text-sm">
-            <span class="w-12 h-px bg-primary"></span>
+            <span class="w-12 h-px bg-accent"></span>
             <span>Based in Sri Lanka · Open to remote</span>
           </div>
         </div>
@@ -165,7 +284,40 @@
     </div>
   </section>
 
+<section id="about" class="min-h-screen"></section>
+<section id="skills" class="min-h-screen"></section>
+<section id="projects" class="min-h-screen"></section>
+<section id="contact" class="min-h-screen"></section>
 
+
+
+
+
+<script>
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  function setActiveLink() {
+    let current = "";
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 150;
+      if (window.scrollY >= sectionTop) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === "#" + current) {
+        link.classList.add("active");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", setActiveLink);
+  window.addEventListener("load", setActiveLink);
+</script>
 
 
 

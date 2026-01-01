@@ -810,3 +810,51 @@ footer .social-icons a:hover{
     }
 }
 
+
+
+
+
+.nav-link {
+  position: relative;
+  display: inline-block;       /* IMPORTANT */
+  color: #a1a1aa;
+  padding-bottom: 6px;          /* space for underline */
+  line-height: 1;               /* prevents jump */
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: white;
+}
+
+/* underline */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;                    /* ALWAYS below text */
+  width: 0;
+  height: 2px;
+  background: var(--color-primary);
+  border-radius: 999px;
+  transform: translateX(-50%);
+  transition: width 0.3s ease, background 0.3s ease;
+}
+
+/* hover underline */
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* active link */
+.nav-link.active {
+  color: white;
+}
+
+/* active underline */
+.nav-link.active::after {
+  width: 100%;
+  background: var(--color-accent);
+}
+
+
