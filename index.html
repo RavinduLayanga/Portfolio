@@ -146,18 +146,69 @@
 }
 
 
-.project-card {
+
+
+/* .project-card {
   background: rgba(255,255,255,0.06);
   border: 1px solid rgba(255,255,255,0.18);
   border-radius: 1.25rem;
   padding: 2rem;
+
+  width: 420px;         
+  height: 320px;        
+
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;       
+
   transition: all 0.3s ease;
 }
 
 .project-card:hover {
   background: rgba(255,255,255,0.1);
-  transform: translateY(-4px);
+  transform: scale(1.02);
+} */
+
+
+
+/* In your <style> tag */
+
+.project-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 1.25rem;
+  padding: 2rem;
+
+  width: 420px;
+  height: 320px;
+
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+
+  position: relative;
+  z-index: 1;
+
+  transform: translateZ(0);
+
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
 }
+
+.project-card:hover {
+  background: rgba(255,255,255,0.1);
+  z-index: 20;
+
+  transform: translateZ(0);
+
+  box-shadow: 0 30px 60px -15px rgba(0,0,0,0.55);
+  border-color: var(--color-primary);
+}
+
+
+
 
 .project-tag {
   padding: 0.35rem 0.7rem;
@@ -210,7 +261,29 @@
 }
 
 
-    
+/* Project carousel scrollbar hide */
+#projectCarousel::-webkit-scrollbar {
+  display: none;
+}
+
+#projectCarousel {
+  scrollbar-width: none;
+}
+
+.project-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.project-dot.active {
+  background: var(--color-primary);
+  transform: scale(1.4);
+}
+
 
 </style>
 
@@ -293,7 +366,7 @@
 
   <!-- HERO -->
   <section id="hero" class="min-h-screen flex items-center relative">
-    <div class="max-w-7xl mx-auto px-6 relative">
+    <div class="max-w-7xl mx-auto px-6 w-full">
 
       <!-- glow behind card -->
       <div class="absolute inset-0 -z-10">
@@ -402,17 +475,26 @@
 
 
   <section id="about" class="min-h-screen flex items-center">
-  <div class="max-w-7xl mx-auto px-6">
+  <div class="max-w-7xl mx-auto px-6 w-full">
 
     <div class="bg-glass backdrop-blur-2xl
+            border border-border
+            rounded-3xl
+            px-16 py-20
+            min-h-[620px] flex flex-col justify-center"> <h2 class="text-4xl md:text-5xl font-bold">
+    About <span class="text-primary">Me</span>
+  </h2>
+  
+
+    <!-- <div class="bg-glass backdrop-blur-2xl
                 border border-border
                 rounded-3xl
                 px-16 py-20">
 
       <h2 class="text-4xl md:text-5xl font-bold">
         About <span class="text-primary">Me</span>
-      </h2>
-      <div class="mt-6 w-16 h-1 bg-primary/60 rounded-full"></div>
+      </h2> -->
+      <!-- <div class="mt-6 w-16 h-1 bg-primary/60 rounded-full"></div> -->
 
 
       <p class="mt-8 text-lg text-gray-300 max-w-3xl leading-relaxed">
@@ -458,77 +540,85 @@
 </section>
 
 
+
 <section id="experience" class="min-h-screen flex items-center">
-  <div class="max-w-7xl mx-auto px-6">
+  <div class="max-w-7xl mx-auto px-6 w-full">
 
     <div class="bg-glass backdrop-blur-2xl
                 border border-border
                 rounded-3xl
-                px-16 py-20">
-
+                px-16 py-20
+                min-h-[620px] flex flex-col"> 
+      
       <h2 class="text-4xl md:text-5xl font-bold">
         Experience & <span class="text-primary">Education</span>
       </h2>
 
-      <!-- GRID -->
-      <div class="mt-14 grid md:grid-cols-2 gap-16">
+      <div class="flex-1 flex flex-col justify-center">
+          
+          <div class="grid md:grid-cols-2 gap-16">
 
-        <!-- EXPERIENCE -->
-        <div>
-          <h3 class="text-2xl font-semibold mb-6">Experience</h3>
+            <div>
+              <h3 class="text-2xl font-semibold mb-6">Experience</h3>
 
-          <div class="border-l-2 border-primary/40 pl-6">
-            <p class="text-lg font-medium">
-              Software Engineering Intern
-            </p>
-            <p class="text-gray-400 mt-1">
-              11 months · Industry Internship
-            </p>
+              <div class="border-l-2 border-primary/40 pl-6">
+                <p class="text-lg font-medium">
+                  Software Engineering Intern
+                </p>
+                <p class="text-gray-400 mt-1">
+                  11 months · Industry Internship
+                </p>
 
-            <ul class="mt-4 space-y-3 text-gray-300">
-              <li>Worked on real-world web applications and internal systems</li>
-              <li>Collaborated with senior developers in production environments</li>
-              <li>Gained experience with version control, debugging, and clean code</li>
-            </ul>
-          </div>
-        </div>
+                <ul class="mt-4 space-y-3 text-gray-300">
+                  <li>Worked on real-world web applications and internal systems</li>
+                  <li>Collaborated with senior developers in production environments</li>
+                  <li>Gained experience with version control, debugging, and clean code</li>
+                </ul>
+              </div>
+            </div>
 
-        <!-- EDUCATION -->
-        <div>
-          <h3 class="text-2xl font-semibold mb-6">Education</h3>
+            <div>
+              <h3 class="text-2xl font-semibold mb-6">Education</h3>
 
-          <div class="border-l-2 border-primary/40 pl-6">
-            <p class="text-lg font-medium">
-              BSc (Hons) Computer Science
-            </p>
-            <p class="text-gray-400 mt-1">
-              University of Westminster
-            </p>
-            <p class="text-gray-300 mt-2">
-              Upper Second Class Honours (2:1)
-            </p>
-          </div>
-        </div>
+              <div class="border-l-2 border-primary/40 pl-6">
+                <p class="text-lg font-medium">
+                  BSc (Hons) Computer Science
+                </p>
+                <p class="text-gray-400 mt-1">
+                  University of Westminster
+                </p>
+                <p class="text-gray-300 mt-2">
+                  Upper Second Class Honours (2:1)
+                </p>
+              </div>
+            </div>
 
-      </div>
-
-    </div>
+          </div> </div> </div>
 
   </div>
 </section>
 
 
 <section id="skills" class="min-h-screen flex items-center">
-  <div class="max-w-7xl mx-auto px-6">
+  <div class="max-w-7xl mx-auto px-6 w-full">
 
-    <div class="bg-glass backdrop-blur-2xl
+    <!-- <div class="bg-glass backdrop-blur-2xl
                 border border-border
                 rounded-3xl
                 px-16 py-20">
 
       <h2 class="text-4xl md:text-5xl font-bold">
         Skills & <span class="text-primary">Technologies</span>
-      </h2>
+      </h2> -->
+
+      <div class="bg-glass backdrop-blur-2xl
+            border border-border
+            rounded-3xl
+            px-16 py-20
+            min-h-[620px] flex flex-col justify-center"> <h2 class="text-4xl md:text-5xl font-bold">
+    Skills & <span class="text-primary">Technologies</span>
+  </h2>
+  
 
       <!-- GRID -->
       <div class="mt-14 grid gap-10 md:grid-cols-2 lg:grid-cols-3">
@@ -596,71 +686,116 @@
 </section>
 
 <section id="projects" class="min-h-screen flex items-center">
-  <div class="max-w-7xl mx-auto px-6">
+  <div class="max-w-7xl mx-auto px-6 w-full">
 
     <div class="bg-glass backdrop-blur-2xl
                 border border-border
                 rounded-3xl
-                px-16 py-20">
+                px-10 py-10 md:px-16 md:py-12">
 
       <h2 class="text-4xl md:text-5xl font-bold">
         Selected <span class="text-primary">Projects</span>
       </h2>
 
-      <p class="mt-6 text-lg text-gray-400 max-w-3xl">
-        A selection of academic and personal projects demonstrating practical
-        problem-solving, clean architecture, and real-world development experience.
+      <p class="mt-4 text-lg text-gray-400 max-w-3xl">
+        A selection of academic and personal projects demonstrating practical problem-solving, clean architecture, and real-world development experience.
       </p>
 
-      <!-- PROJECT GRID -->
-      <div class="mt-14 grid gap-10 md:grid-cols-2">
+      <div class="relative mt-2">
 
-        <!-- PROJECT CARD -->
-        <div class="project-card">
-          <h3 class="text-2xl font-semibold">Skin Consultation Management System</h3>
-          <p class="mt-4 text-gray-300">
-            A full-stack system designed to manage patient records, consultations,
-            and appointments with a clean separation of concerns.
-          </p>
+        <div class="mx-auto w-[936px]">
+          
+          <div id="projectCarousel" class="flex gap-20 overflow-x-auto scroll-smooth
+                    snap-x snap-mandatory p-10">
 
-          <div class="mt-4 flex flex-wrap gap-2">
-            <span class="project-tag">Java</span>
-            <span class="project-tag">Spring Boot</span>
-            <span class="project-tag">MySQL</span>
-            <span class="project-tag">MVC</span>
-          </div>
+            <div class="project-card snap-start">
+              <h3 class="text-2xl font-semibold">
+                Skin Consultation Management System
+              </h3>
+              <p class="mt-4 text-gray-300">
+                A full-stack system designed to manage patient records,
+                consultations, and appointments with a clean separation of concerns.
+              </p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="project-tag">Java</span>
+                <span class="project-tag">Spring Boot</span>
+                <span class="project-tag">MySQL</span>
+                <span class="project-tag">MVC</span>
+              </div>
+              <div class="mt-auto flex gap-4">
+                <a href="https://github.com/yourusername/skin-consultation-system" target="_blank" class="project-link">
+                  View Code
+                </a>
+              </div>
+            </div>
 
-          <div class="mt-6 flex gap-4">
-            <a href="https://github.com/yourusername/skin-consultation-system"
-               target="_blank"
-               class="project-link">
-              View Code
-            </a>
+            <div class="project-card snap-start">
+               <h3 class="text-2xl font-semibold">
+                Tea Collection Management System
+              </h3>
+              <p class="mt-4 text-gray-300">
+                A web-based application to track daily tea collection records and
+                automatically calculate monthly payments for suppliers.
+              </p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="project-tag">React</span>
+                <span class="project-tag">Node.js</span>
+                <span class="project-tag">REST API</span>
+                <span class="project-tag">SQL</span>
+              </div>
+              <div class="mt-auto flex gap-4">
+                <a href="https://github.com/yourusername/tea-collection-system" target="_blank" class="project-link">
+                  View Code
+                </a>
+              </div>
+            </div>
+
+             <div class="project-card snap-start">
+              <h3 class="text-2xl font-semibold">
+                Skin Consultation Management System
+              </h3>
+              <p class="mt-4 text-gray-300">
+                A full-stack system designed to manage patient records,
+                consultations, and appointments with a clean separation of concerns.
+              </p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="project-tag">Java</span>
+                <span class="project-tag">Spring Boot</span>
+                <span class="project-tag">MySQL</span>
+                <span class="project-tag">MVC</span>
+              </div>
+              <div class="mt-auto flex gap-4">
+                <a href="https://github.com/yourusername/skin-consultation-system" target="_blank" class="project-link">
+                  View Code
+                </a>
+              </div>
+            </div>
+
+            <div class="project-card snap-start">
+               <h3 class="text-2xl font-semibold">
+                Tea Collection Management System
+              </h3>
+              <p class="mt-4 text-gray-300">
+                A web-based application to track daily tea collection records and
+                automatically calculate monthly payments for suppliers.
+              </p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="project-tag">React</span>
+                <span class="project-tag">Node.js</span>
+                <span class="project-tag">REST API</span>
+                <span class="project-tag">SQL</span>
+              </div>
+              <div class="mt-auto flex gap-4">
+                <a href="https://github.com/yourusername/tea-collection-system" target="_blank" class="project-link">
+                  View Code
+                </a>
+              </div>
+            </div>
+
           </div>
         </div>
 
-        <!-- PROJECT CARD -->
-        <div class="project-card">
-          <h3 class="text-2xl font-semibold">Tea Collection Management System</h3>
-          <p class="mt-4 text-gray-300">
-            A web-based application to track daily tea collection records and
-            automatically calculate monthly payments for suppliers.
-          </p>
-
-          <div class="mt-4 flex flex-wrap gap-2">
-            <span class="project-tag">React</span>
-            <span class="project-tag">Node.js</span>
-            <span class="project-tag">REST API</span>
-            <span class="project-tag">SQL</span>
-          </div>
-
-          <div class="mt-6 flex gap-4">
-            <a href="https://github.com/yourusername/tea-collection-system"
-               target="_blank"
-               class="project-link">
-              View Code
-            </a>
-          </div>
+        <div id="projectDots" class="mt-0 flex justify-center gap-3">
         </div>
 
       </div>
@@ -670,17 +805,30 @@
   </div>
 </section>
 
-<section id="contact" class="min-h-screen flex items-center">
-  <div class="max-w-4xl mx-auto px-6 ">
 
+<section id="contact" class="min-h-screen flex items-center">
+
+  <div class="max-w-7xl mx-auto px-6 w-full">
+    
     <div class="bg-glass backdrop-blur-2xl
+                border border-border
+                rounded-3xl
+                px-16 py-20 text-center w-full
+                min-h-[620px] flex flex-col justify-center"> <h2 class="text-4xl md:text-5xl font-bold">
+        Let’s <span class="text-primary">Connect</span>
+      </h2>
+  
+
+  <div class="max-w-7xl mx-auto px-6 w-full ">
+
+    <!-- <div class="bg-glass backdrop-blur-2xl
                 border border-border
                 rounded-3xl
                 px-16 py-20 text-center">
 
       <h2 class="text-4xl md:text-5xl font-bold">
         Let’s <span class="text-primary">Connect</span>
-      </h2>
+      </h2> -->
 
       <p class="mt-6 text-lg text-gray-400 max-w-2xl mx-auto">
         I’m open to internship, junior software engineer, and collaborative
@@ -792,6 +940,64 @@
     });
   });
 
+ 
+  const carousel = document.getElementById("projectCarousel");
+  const dotsContainer = document.getElementById("projectDots");
+
+  const cards = carousel.children;
+  const cardsPerView = 2;
+  const cardWidth = 420;
+  const gap = 96;
+  const scrollAmount = (cardWidth + gap) * cardsPerView;
+
+  const pageCount = Math.ceil(cards.length / cardsPerView);
+  let currentPage = 0;
+  let autoScrollInterval;
+
+  // Create dots
+  for (let i = 0; i < pageCount; i++) {
+    const dot = document.createElement("div");
+    dot.classList.add("project-dot");
+    if (i === 0) dot.classList.add("active");
+
+    dot.addEventListener("click", () => {
+      goToPage(i);
+      resetAutoScroll();
+    });
+
+    dotsContainer.appendChild(dot);
+  }
+
+  const dots = dotsContainer.children;
+
+  function goToPage(page) {
+    carousel.scrollTo({
+      left: page * scrollAmount,
+      behavior: "smooth"
+    });
+
+    [...dots].forEach(d => d.classList.remove("active"));
+    dots[page].classList.add("active");
+
+    currentPage = page;
+  }
+
+  function autoScroll() {
+    currentPage = (currentPage + 1) % pageCount;
+    goToPage(currentPage);
+  }
+
+  function resetAutoScroll() {
+    clearInterval(autoScrollInterval);
+    autoScrollInterval = setInterval(autoScroll, 5000);
+  }
+
+  autoScrollInterval = setInterval(autoScroll, 5000);
+
+
+
+
+ 
 
 </script>
 
