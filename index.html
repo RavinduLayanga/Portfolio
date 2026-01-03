@@ -685,27 +685,41 @@
   </div>
 </section>
 
+
+
+
 <section id="projects" class="min-h-screen flex items-center">
   <div class="max-w-7xl mx-auto px-6 w-full">
 
     <div class="bg-glass backdrop-blur-2xl
                 border border-border
                 rounded-3xl
-                px-10 py-10 md:px-16 md:py-12">
+                px-10 py-10 md:px-16 md:py-12
+                min-h-[620px] flex flex-col justify-center">
 
-      <h2 class="text-4xl md:text-5xl font-bold">
-        Selected <span class="text-primary">Projects</span>
-      </h2>
+      <div class="flex flex-col md:flex-row justify-between items-end mb-8 gap-4">
+        
+        <h2 class="text-4xl md:text-5xl font-bold">
+          Selected <span class="text-primary">Projects</span>
+        </h2>
 
-      <p class="mt-4 text-lg text-gray-400 max-w-3xl">
-        A selection of academic and personal projects demonstrating practical problem-solving, clean architecture, and real-world development experience.
-      </p>
+        <a href="https://github.com/yourusername?tab=repositories" 
+           target="_blank"
+           class="group flex items-center gap-2 text-gray-400 hover:text-primary transition-colors duration-300 pb-2">
+          <span class="font-medium">View Archive</span>
+          <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" 
+               fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </a>
+
+      </div>
 
       <div class="relative mt-2">
 
-        <div class="mx-auto w-[936px]">
+        <div class="mx-auto max-w-[960px]">
           
-          <div id="projectCarousel" class="flex gap-20 overflow-x-auto scroll-smooth
+          <div id="projectCarousel" class="flex gap-24 overflow-x-auto scroll-smooth
                     snap-x snap-mandatory p-10">
 
             <div class="project-card snap-start">
@@ -722,15 +736,16 @@
                 <span class="project-tag">MySQL</span>
                 <span class="project-tag">MVC</span>
               </div>
-              <div class="mt-auto flex gap-4">
-                <a href="https://github.com/yourusername/skin-consultation-system" target="_blank" class="project-link">
-                  View Code
+              <div class="mt-auto flex w-full justify-center gap-4">
+                <a href="https://github.com/yourusername/skin-consultation-system" target="_blank" class="project-link flex items-center gap-2">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
+                  <span>View Code</span>
                 </a>
               </div>
             </div>
 
             <div class="project-card snap-start">
-               <h3 class="text-2xl font-semibold">
+              <h3 class="text-2xl font-semibold">
                 Tea Collection Management System
               </h3>
               <p class="mt-4 text-gray-300">
@@ -743,16 +758,17 @@
                 <span class="project-tag">REST API</span>
                 <span class="project-tag">SQL</span>
               </div>
-              <div class="mt-auto flex gap-4">
-                <a href="https://github.com/yourusername/tea-collection-system" target="_blank" class="project-link">
-                  View Code
+              <div class="mt-auto flex w-full justify-center gap-4">
+                <a href="https://github.com/yourusername/tea-collection-system" target="_blank" class="project-link flex items-center gap-2">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
+                  <span>View Code</span>
                 </a>
               </div>
             </div>
 
              <div class="project-card snap-start">
               <h3 class="text-2xl font-semibold">
-                Skin Consultation Management System
+                Skin Consultation Management System 2
               </h3>
               <p class="mt-4 text-gray-300">
                 A full-stack system designed to manage patient records,
@@ -764,16 +780,17 @@
                 <span class="project-tag">MySQL</span>
                 <span class="project-tag">MVC</span>
               </div>
-              <div class="mt-auto flex gap-4">
-                <a href="https://github.com/yourusername/skin-consultation-system" target="_blank" class="project-link">
-                  View Code
+              <div class="mt-auto flex w-full justify-center gap-4">
+                <a href="https://github.com/yourusername/skin-consultation-system" target="_blank" class="project-link flex items-center gap-2">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
+                  <span>View Code</span>
                 </a>
               </div>
             </div>
 
             <div class="project-card snap-start">
-               <h3 class="text-2xl font-semibold">
-                Tea Collection Management System
+              <h3 class="text-2xl font-semibold">
+                Tea Collection Management System 2
               </h3>
               <p class="mt-4 text-gray-300">
                 A web-based application to track daily tea collection records and
@@ -785,9 +802,54 @@
                 <span class="project-tag">REST API</span>
                 <span class="project-tag">SQL</span>
               </div>
-              <div class="mt-auto flex gap-4">
-                <a href="https://github.com/yourusername/tea-collection-system" target="_blank" class="project-link">
-                  View Code
+              <div class="mt-auto flex w-full justify-center gap-4">
+                <a href="https://github.com/yourusername/tea-collection-system" target="_blank" class="project-link flex items-center gap-2">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
+                  <span>View Code</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="project-card snap-start">
+              <h3 class="text-2xl font-semibold">
+                Skin Consultation Management System 3
+              </h3>
+              <p class="mt-4 text-gray-300">
+                A full-stack system designed to manage patient records,
+                consultations, and appointments with a clean separation of concerns.
+              </p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="project-tag">Java</span>
+                <span class="project-tag">Spring Boot</span>
+                <span class="project-tag">MySQL</span>
+                <span class="project-tag">MVC</span>
+              </div>
+              <div class="mt-auto flex w-full justify-center gap-4">
+                <a href="https://github.com/yourusername/skin-consultation-system" target="_blank" class="project-link flex items-center gap-2">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
+                  <span>View Code</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="project-card snap-start">
+              <h3 class="text-2xl font-semibold">
+                Tea Collection Management System 3
+              </h3>
+              <p class="mt-4 text-gray-300">
+                A web-based application to track daily tea collection records and
+                automatically calculate monthly payments for suppliers.
+              </p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="project-tag">React</span>
+                <span class="project-tag">Node.js</span>
+                <span class="project-tag">REST API</span>
+                <span class="project-tag">SQL</span>
+              </div>
+              <div class="mt-auto flex w-full justify-center gap-4">
+                <a href="https://github.com/yourusername/tea-collection-system" target="_blank" class="project-link flex items-center gap-2">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
+                  <span>View Code</span>
                 </a>
               </div>
             </div>
@@ -795,7 +857,7 @@
           </div>
         </div>
 
-        <div id="projectDots" class="mt-0 flex justify-center gap-3">
+        <div id="projectDots" class="mt-2 flex justify-center gap-3">
         </div>
 
       </div>
@@ -890,14 +952,6 @@
 </footer>
 
 
-<!-- <section id="about" class="min-h-screen"></section> -->
-<!-- <section id="skills" class="min-h-screen"></section>
-<section id="projects" class="min-h-screen"></section>
-<section id="contact" class="min-h-screen"></section> -->
-
-
-
-
 
 <script>
   const sections = document.querySelectorAll("section");
@@ -924,8 +978,6 @@
   window.addEventListener("scroll", setActiveLink);
   window.addEventListener("load", setActiveLink);
 
-
-
   const menuBtn = document.getElementById("menuBtn");
   const mobileMenu = document.getElementById("mobileMenu");
 
@@ -933,26 +985,26 @@
     mobileMenu.classList.toggle("hidden");
   });
 
-  // close menu when clicking a link
   mobileMenu.querySelectorAll("a").forEach(link => {
     link.addEventListener("click", () => {
       mobileMenu.classList.add("hidden");
     });
   });
 
- 
+  /* --- CAROUSEL LOGIC UPDATED --- */
   const carousel = document.getElementById("projectCarousel");
   const dotsContainer = document.getElementById("projectDots");
 
   const cards = carousel.children;
   const cardsPerView = 2;
   const cardWidth = 420;
-  const gap = 96;
+  const gap = 96; // Matching your gap-24 (24 * 4px)
   const scrollAmount = (cardWidth + gap) * cardsPerView;
 
   const pageCount = Math.ceil(cards.length / cardsPerView);
   let currentPage = 0;
   let autoScrollInterval;
+  let isHovering = false; // Flag to track mouse state
 
   // Create dots
   for (let i = 0; i < pageCount; i++) {
@@ -989,21 +1041,39 @@
 
   function resetAutoScroll() {
     clearInterval(autoScrollInterval);
-    autoScrollInterval = setInterval(autoScroll, 5000);
+    // Only restart the timer if the user is NOT hovering
+    if (!isHovering) {
+      autoScrollInterval = setInterval(autoScroll, 5000);
+    }
   }
 
-  autoScrollInterval = setInterval(autoScroll, 5000);
+  // --- NEW EVENT LISTENERS FOR PAUSING ---
 
+  // Stop scrolling when mouse enters the carousel
+  carousel.addEventListener("mouseenter", () => {
+    isHovering = true;
+    clearInterval(autoScrollInterval);
+  });
 
+  // Resume scrolling when mouse leaves the carousel
+  carousel.addEventListener("mouseleave", () => {
+    isHovering = false;
+    resetAutoScroll();
+  });
 
-
- 
+  // Start the initial timer
+  resetAutoScroll();
 
 </script>
 
 
+<!-- to put demo link and code 
 
-
-
+<a href="..." class="project-link flex items-center gap-2 text-accent">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+    </svg>
+    <span>Live Demo</span>
+  </a>  -->
 </body>
 </html>

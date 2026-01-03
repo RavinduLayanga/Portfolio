@@ -671,7 +671,15 @@ footer .social-icons a:hover{
     font-size: 35px;
 }
 
+.project-card:hover {
+  background: rgba(255,255,255,0.1);
 
+  /* --- NEW PROPERTIES FOR FIX --- */
+  transform: scale(1.03) translateY(-4px); /* Scale up and move up slightly */
+  z-index: 50; /* Place it well above everything else */
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); /* Add a strong shadow for depth */
+  border-color: var(--color-primary); /* Optional: highlight border color */
+}
 
 /* responsive media query start */
 @media (max-width: 1104px) {
