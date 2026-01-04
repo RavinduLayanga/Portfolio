@@ -3,7 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Thadiya | Software Engineer</title>
+  <meta name="description" content="Portfolio of Ravindu Layanga - Software Engineer specializing in Java, Spring Boot, and React. View my projects and experience.">
+<meta property="og:title" content="Ravindu Layanga | Software Engineer">
+<meta property="og:description" content="Check out my portfolio featuring full-stack projects in Java and React.">
+<meta property="og:image" content="https://yourwebsite.com/assets/images/og-preview.png"> <meta property="og:type" content="website">
+
+<link rel="icon" type="image/png" href="assets/favicon.png">
+  <title>Ravindu Layanga | Software Engineer</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
@@ -230,7 +236,7 @@
 }
 
 
-.contact-btn {
+/* .contact-btn {
   padding: 0.9rem 2.2rem;
   border-radius: 0.75rem;
   background: var(--color-primary);
@@ -258,7 +264,7 @@
 .contact-btn-outline:hover {
   background: rgba(255,255,255,0.08);
   transform: translateY(-2px);
-}
+} */
 
 
 /* Project carousel scrollbar hide */
@@ -285,6 +291,23 @@
 }
 
 
+html {
+  scroll-behavior: smooth;
+}
+
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
 </style>
 
 
@@ -295,7 +318,8 @@
 
 
 
-<body class="bg-bg text-white font-[Inter] relative overflow-x-hidden">
+<body class="bg-bg text-white font-[Inter] overflow-x-hidden">
+
 
   <!-- animated background blobs -->
   <div class="fixed inset-0 -z-30 overflow-hidden">
@@ -309,7 +333,7 @@
 
 
   <!-- Floating Navbar -->
-<nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 hidden md:block">
+<nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 hidden md:block h-[56px]">
   <div class="flex gap-8 px-8 py-4
               bg-glass backdrop-blur-xl
               border border-border
@@ -326,13 +350,13 @@
 </nav>
 
 <!-- Mobile Navbar -->
-<nav class="fixed top-4 left-4 right-4 z-50 md:hidden">
+<nav class="fixed top-4 left-4 right-4 z-50 md:hidden h-[56px]">
   <div class="flex items-center justify-between
               bg-glass backdrop-blur-xl
               border border-border
               rounded-2xl px-5 py-4">
 
-    <span class="font-semibold">Thadiya</span>
+    <span class="font-semibold">Ravindu</span>
 
     <!-- Hamburger -->
     <button id="menuBtn" class="text-white">
@@ -365,22 +389,23 @@
 
 
   <!-- HERO -->
-  <section id="hero" class="min-h-screen flex items-center relative">
-    <div class="max-w-7xl mx-auto px-6 w-full">
+  <section id="hero" class="min-h-screen flex pt-24 md:pt-20 items-center">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 w-full relative">
 
-      <!-- glow behind card -->
-      <div class="absolute inset-0 -z-10">
-        <div class="w-[600px] h-[600px] bg-primary/25 rounded-full
-                    blur-[160px] absolute top-1/4 left-1/4"></div>
-      </div>
+    <!-- glow behind card -->
+    <div class="absolute inset-0 -z-10">
+      <div class="w-[600px] h-[600px] bg-primary/25 rounded-full
+                  blur-[160px] absolute top-1/4 left-1/4"></div>
+    </div>
 
+    <div class="reveal">
       <!-- glass hero card -->
-      <div class="relative grid md:grid-cols-2 gap-14 items-center
-                  bg-glass backdrop-blur-2xl
-                  border border-border
-                  rounded-3xl
-                  px-16 py-20 min-h-[620px]">
-
+      <div class="relative grid md:grid-cols-2 gap-10 md:gap-14 items-center
+            bg-glass backdrop-blur-2xl
+            border border-border
+            rounded-3xl
+            px-6 py-10 sm:px-10 sm:py-12 md:px-16 md:py-16
+            min-h-auto md:min-h-[620px]">
         <!-- inner glass gradient -->
         <div class="absolute inset-0 rounded-3xl
                     bg-gradient-to-br
@@ -388,81 +413,94 @@
                     pointer-events-none"></div>
 
         <!-- LEFT -->
-        <div class="relative z-10">
-          <h1 class="text-6xl md:text-7xl font-bold leading-tight">
-            Hi, I’m <span class="text-primary">Thadiya</span>
+        <div class="relative z-10 flex flex-col justify-center">
+
+          <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight">
+            Hi, I’m <span class="text-primary">Ravindu</span>
           </h1>
 
-          <p class="mt-6 text-xl text-gray-300 max-w-xl">
-            Software Engineer focused on building clean, scalable web applications.
+          <!-- Typewriter -->
+           <div class="mt-8 text-xl sm:text-2xl md:text-3xl text-gray-300
+            max-w-full md:max-w-xl
+            h-10 flex items-center
+            whitespace-nowrap overflow-hidden">
+
+          <!-- <div class="mt-8 text-2xl md:text-3xl text-gray-300 max-w-xl h-10 flex items-center"> -->
+            <span class="mr-2">I am a</span>
+            <span id="typewriter" class="text-accent font-semibold tracking-wide inline-block"></span>
+            <span class="animate-pulse text-accent ml-1">|</span>
+          </div>
+
+          <!-- One-line value statement -->
+          <p class="mt-6 text-lg text-gray-400 max-w-xl leading-relaxed">
+            I build clean, scalable web applications using Java, Spring Boot, and React,
+            focusing on real-world problem solving and maintainable architecture.
           </p>
 
-          <!-- <div class="mt-10 flex gap-4">
+          <!-- CTA buttons -->
+          <div class="mt-8 flex flex-col sm:flex-row gap-4 sm:gap-6">
+
             <a href="#projects"
-               class="px-8 py-4 bg-primary rounded-xl font-medium
-                      shadow-lg shadow-primary/30
-                      hover:opacity-90 transition">
-              View Projects
+               class="group relative overflow-hidden flex items-center gap-3 px-9 py-4 rounded-xl font-medium 
+                      text-white border border-accent bg-transparent
+                      transition-all duration-300 ease-out
+                      hover:shadow-[0_0_40px_rgba(0,229,255,0.6)] 
+                      hover:scale-105 hover:-translate-y-1">
+              
+              <span class="absolute inset-0 w-full h-full bg-accent 
+                           transform origin-left scale-x-0 
+                           transition-transform duration-300 ease-out 
+                           group-hover:scale-x-100"></span>
+
+              <div class="relative z-10 flex items-center gap-3 group-hover:text-bg">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                </svg>
+                <span>View Projects</span>
+              </div>
             </a>
 
-            <a href="#"
-               class="px-8 py-4 border border-border rounded-xl
-                      text-gray-300 opacity-80
-                      hover:opacity-100 hover:bg-white/5 transition">
-              Download CV
+            <a href="/assets/Ravindu_Layanga_CV.pdf" download
+               class="group relative overflow-hidden flex items-center gap-3 px-9 py-4 rounded-xl font-medium 
+                      text-white border border-accent bg-transparent
+                      transition-all duration-300 ease-out
+                      hover:shadow-[0_0_40px_rgba(0,229,255,0.6)] 
+                      hover:scale-105 hover:-translate-y-1">
+              
+              <span class="absolute inset-0 w-full h-full bg-accent 
+                           transform origin-left scale-x-0 
+                           transition-transform duration-300 ease-out 
+                           group-hover:scale-x-100"></span>
+
+              <div class="relative z-10 flex items-center gap-3 group-hover:text-bg">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                </svg>
+                <span>Download CV</span>
+              </div>
             </a>
-          </div> -->
 
-          <div class="mt-10 flex flex-wrap gap-4">
+          </div>
 
-  <!-- Primary -->
-  <a href="#projects"
-   class="group relative inline-flex items-center justify-center
-          px-9 py-4 rounded-xl font-medium text-white
-          bg-primary
-          border border-white/20
-          shadow-lg shadow-primary/30
-          transition-all duration-300
-          hover:shadow-primary/50 hover:-translate-y-0.5">
-
-  <!-- inner glass highlight -->
-  <span class="absolute inset-0 rounded-xl
-               bg-gradient-to-b from-white/20 to-transparent
-               opacity-40 pointer-events-none"></span>
-
-  <!-- button text -->
-  <span class="relative z-10">View Projects</span>
-</a>
-
-
-  <!-- Secondary -->
-  <a href="/assets/Thadiya_CV.pdf" download
-     class="inline-flex items-center justify-center
-            px-9 py-4 rounded-xl font-medium
-            border border-border
-            text-gray-300
-            transition-all duration-300
-            hover:text-white hover:bg-white/5 hover:-translate-y-0.5">
-
-    Download CV
-  </a>
-
+          <!-- location / status -->
+          <div class="mt-10 md:mt-16 flex items-center gap-4 text-gray-400 text-sm">
+  <span class="w-12 h-px bg-accent"></span>
+  <span>Based in Sri Lanka · Open to On-site, Remote & Hybrid roles</span>
 </div>
 
 
-          <!-- vertical anchor -->
-          <div class="mt-12 flex items-center gap-4 text-gray-400 text-sm">
-            <span class="w-12 h-px bg-accent"></span>
-            <span>Based in Sri Lanka · Open to remote</span>
-          </div>
         </div>
 
         <!-- RIGHT -->
         <div class="relative z-10 flex justify-center md:justify-end">
           <img
             src="assets/images/profile.jpg"
-            alt="Thadiya"
-            class="w-80 h-80 md:w-96 md:h-96 object-cover rounded-3xl
+            alt="Ravindu"
+            class="w-80 h-80 md:w-96 md:h-96 sm:w-72 sm:h-72 md:w-96 object-cover rounded-3xl
                    border border-border
                    shadow-[0_0_60px_rgba(108,99,255,0.45)]
                    hover:scale-105 transition"
@@ -471,63 +509,65 @@
 
       </div>
     </div>
-  </section>
+
+  </div>
+</section>
 
 
-  <section id="about" class="min-h-screen flex items-center">
-  <div class="max-w-7xl mx-auto px-6 w-full">
 
+<section id="about" class="min-h-screen flex pt-24 md:pt-20 items-center">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 w-full">
+<div class="reveal">
     <div class="bg-glass backdrop-blur-2xl
             border border-border
             rounded-3xl
-            px-16 py-20
-            min-h-[620px] flex flex-col justify-center"> <h2 class="text-4xl md:text-5xl font-bold">
+            px-6 py-10
+            sm:px-10 sm:py-12
+            md:px-16 md:py-20
+            min-h-auto md:min-h-[620px]
+            flex flex-col justify-center">
+
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold">
     About <span class="text-primary">Me</span>
   </h2>
-  
-
-    <!-- <div class="bg-glass backdrop-blur-2xl
-                border border-border
-                rounded-3xl
-                px-16 py-20">
-
-      <h2 class="text-4xl md:text-5xl font-bold">
-        About <span class="text-primary">Me</span>
-      </h2> -->
-      <!-- <div class="mt-6 w-16 h-1 bg-primary/60 rounded-full"></div> -->
 
 
-      <p class="mt-8 text-lg text-gray-300 max-w-3xl leading-relaxed">
+
+      <p class="mt-6 sm:mt-8 text-base sm:text-lg text-gray-300
+          max-w-full md:max-w-3xl leading-relaxed">
         I’m a Software Engineer with hands-on experience building modern web
         applications using clean, scalable architectures. I enjoy turning
         complex problems into simple, intuitive solutions and writing code
         that is easy to maintain and extend.
       </p>
 
-      <p class="mt-6 text-lg text-gray-300 max-w-3xl leading-relaxed">
+      <p class="mt-6 sm:mt-8 text-base sm:text-lg text-gray-300
+          max-w-full md:max-w-3xl leading-relaxed">
         During my 11-month internship, I worked closely with real production
         systems, collaborated with senior developers, and gained practical
         exposure to industry workflows, version control, and problem-solving
         in live environments.
       </p>
 
-      <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
-  <div class="bg-white/5 border border-border rounded-xl p-5 text-center">
+  <div class="mt-10 sm:mt-12
+            grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4
+            gap-4 sm:gap-6">
+  <div class="bg-white/5 border border-border rounded-xl p-4 sm:p-5 text-center">
     <p class="text-2xl font-semibold text-primary">11+</p>
     <p class="text-sm text-gray-400 mt-1">Months Experience</p>
   </div>
 
-  <div class="bg-white/5 border border-border rounded-xl p-5 text-center">
+  <div class="bg-white/5 border border-border rounded-xl p-4 sm:p-5 text-center">
     <p class="text-2xl font-semibold text-primary">10+</p>
     <p class="text-sm text-gray-400 mt-1">Projects</p>
   </div>
 
-  <div class="bg-white/5 border border-border rounded-xl p-5 text-center">
+  <div class="bg-white/5 border border-border rounded-xl p-4 sm:p-5 text-center">
     <p class="text-2xl font-semibold text-primary">2:1</p>
     <p class="text-sm text-gray-400 mt-1">Degree Class</p>
   </div>
 
-  <div class="bg-white/5 border border-border rounded-xl p-5 text-center">
+  <div class="bg-white/5 border border-border rounded-xl p-4 sm:p-5 text-center">
     <p class="text-2xl font-semibold text-primary">Remote</p>
     <p class="text-sm text-gray-400 mt-1">Open to Work</p>
   </div>
@@ -536,14 +576,16 @@
 
     </div>
 
+ </div>
+
   </div>
 </section>
 
 
 
-<section id="experience" class="min-h-screen flex items-center">
+<section id="experience" class="min-h-screen  pt-20 flex items-center">
   <div class="max-w-7xl mx-auto px-6 w-full">
-
+<div class="reveal">
     <div class="bg-glass backdrop-blur-2xl
                 border border-border
                 rounded-3xl
@@ -594,12 +636,13 @@
             </div>
 
           </div> </div> </div>
+         </div>
 
   </div>
 </section>
 
 
-<section id="skills" class="min-h-screen flex items-center">
+<section id="skills" class="min-h-screen pt-20 flex items-center">
   <div class="max-w-7xl mx-auto px-6 w-full">
 
     <!-- <div class="bg-glass backdrop-blur-2xl
@@ -610,7 +653,7 @@
       <h2 class="text-4xl md:text-5xl font-bold">
         Skills & <span class="text-primary">Technologies</span>
       </h2> -->
-
+<div class="reveal">
       <div class="bg-glass backdrop-blur-2xl
             border border-border
             rounded-3xl
@@ -681,6 +724,7 @@
       </div>
 
     </div>
+    </div>
 
   </div>
 </section>
@@ -688,9 +732,9 @@
 
 
 
-<section id="projects" class="min-h-screen flex items-center">
+<section id="projects" class="min-h-screen pt-20 flex items-center">
   <div class="max-w-7xl mx-auto px-6 w-full">
-
+<div class="reveal">
     <div class="bg-glass backdrop-blur-2xl
                 border border-border
                 rounded-3xl
@@ -865,13 +909,14 @@
     </div>
 
   </div>
+  </div>
 </section>
 
 
-<section id="contact" class="min-h-screen flex items-center">
+<section id="contact" class="min-h-[85vh] pt-24 flex items-center">
 
   <div class="max-w-7xl mx-auto px-6 w-full">
-    
+    <div class="reveal">
     <div class="bg-glass backdrop-blur-2xl
                 border border-border
                 rounded-3xl
@@ -901,54 +946,100 @@
       <!-- ACTIONS -->
       <div class="mt-12 flex flex-wrap justify-center gap-6">
 
-        <!-- Email -->
-        <a href="mailto:your.email@example.com"
-           class="contact-btn flex items-center gap-3">
-          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-          </svg>
-          <span>Email</span>
-        </a>
+  <a href="mailto:your.email@example.com"
+     class="group relative overflow-hidden flex items-center gap-3 px-9 py-4 rounded-xl font-medium 
+            text-white border border-accent bg-transparent
+            transition-all duration-300 ease-out
+            hover:shadow-[0_0_40px_rgba(0,229,255,0.6)] 
+            hover:scale-105 hover:-translate-y-1">
+    
+    <span class="absolute inset-0 w-full h-full bg-accent 
+                 transform origin-left scale-x-0 
+                 transition-transform duration-300 ease-out 
+                 group-hover:scale-x-100"></span>
 
-        <!-- LinkedIn -->
-        <a href="https://www.linkedin.com/in/yourusername"
-           target="_blank"
-           class="contact-btn-outline flex items-center gap-3">
-          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM0 24h5V7H0v17zM7.5 7h4.8v2.3h.07c.67-1.27 2.3-2.6 4.73-2.6 5.05 0 6 3.3 6 7.6V24h-5v-8.2c0-2-.03-4.6-2.8-4.6-2.8 0-3.23 2.2-3.23 4.5V24h-5V7z"/>
-          </svg>
-          <span>LinkedIn</span>
-        </a>
+    <div class="relative z-10 flex items-center gap-3 transition-colors duration-300 group-hover:text-bg">
+      <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+      </svg>
+      <span>Email</span>
+    </div>
+  </a>
 
-        <!-- GitHub -->
-        <a href="https://github.com/yourusername"
-           target="_blank"
-           class="contact-btn-outline flex items-center gap-3">
-          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 .5C5.73.5.5 5.74.5 12.02c0 5.1 3.29 9.42 7.86 10.95.57.1.78-.25.78-.55v-2.02c-3.2.7-3.88-1.38-3.88-1.38-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.2-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 015.8 0c2.2-1.49 3.18-1.18 3.18-1.18.63 1.59.23 2.76.11 3.05.75.81 1.2 1.84 1.2 3.1 0 4.43-2.7 5.4-5.28 5.69.42.36.79 1.07.79 2.16v3.2c0 .3.21.66.79.55a11.53 11.53 0 007.86-10.95C23.5 5.74 18.27.5 12 .5z"/>
-          </svg>
-          <span>GitHub</span>
-        </a>
+  <a href="https://www.linkedin.com/in/yourusername"
+     target="_blank"
+     class="group relative overflow-hidden flex items-center gap-3 px-9 py-4 rounded-xl font-medium 
+            text-white border border-accent bg-transparent
+            transition-all duration-300 ease-out
+            hover:shadow-[0_0_40px_rgba(0,229,255,0.6)] 
+            hover:scale-105 hover:-translate-y-1">
+    
+    <span class="absolute inset-0 w-full h-full bg-accent 
+                 transform origin-left scale-x-0 
+                 transition-transform duration-300 ease-out 
+                 group-hover:scale-x-100"></span>
 
-      </div>
+    <div class="relative z-10 flex items-center gap-3 transition-colors duration-300 group-hover:text-bg">
+      <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM0 24h5V7H0v17zM7.5 7h4.8v2.3h.07c.67-1.27 2.3-2.6 4.73-2.6 5.05 0 6 3.3 6 7.6V24h-5v-8.2c0-2-.03-4.6-2.8-4.6-2.8 0-3.23 2.2-3.23 4.5V24h-5V7z"/>
+      </svg>
+      <span>LinkedIn</span>
+    </div>
+  </a>
 
-      <!-- PHONE (LOW-KEY) -->
-      <p class="mt-8 text-sm text-gray-400">
-        Or call me at
-        <a href="tel:+947XXXXXXXX"
-           class="text-primary hover:underline ml-1">
-          +94 7X XXX XXXX
-        </a>
-      </p>
+  <a href="https://github.com/yourusername"
+     target="_blank"
+     class="group relative overflow-hidden flex items-center gap-3 px-9 py-4 rounded-xl font-medium 
+            text-white border border-accent bg-transparent
+            transition-all duration-300 ease-out
+            hover:shadow-[0_0_40px_rgba(0,229,255,0.6)] 
+            hover:scale-105 hover:-translate-y-1">
+    
+    <span class="absolute inset-0 w-full h-full bg-accent 
+                 transform origin-left scale-x-0 
+                 transition-transform duration-300 ease-out 
+                 group-hover:scale-x-100"></span>
+
+    <div class="relative z-10 flex items-center gap-3 transition-colors duration-300 group-hover:text-bg">
+      <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12 .5C5.73.5.5 5.74.5 12.02c0 5.1 3.29 9.42 7.86 10.95.57.1.78-.25.78-.55v-2.02c-3.2.7-3.88-1.38-3.88-1.38-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.2-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 015.8 0c2.2-1.49 3.18-1.18 3.18-1.18.63 1.59.23 2.76.11 3.05.75.81 1.2 1.84 1.2 3.1 0 4.43-2.7 5.4-5.28 5.69.42.36.79 1.07.79 2.16v3.2c0 .3.21.66.79.55a11.53 11.53 0 007.86-10.95C23.5 5.74 18.27.5 12 .5z"/>
+      </svg>
+      <span>GitHub</span>
+    </div>
+  </a>
+
+</div>
 
     </div>
 
   </div>
+  </div>
 </section>
 
+ <button id="scrollTopBtn" 
+        class="fixed bottom-10 right-10 z-50 
+               p-4 rounded-full 
+               bg-white/5 border border-accent/20 backdrop-blur-lg
+               text-accent shadow-lg
+               transition-all duration-500 ease-out
+               opacity-0 translate-y-10 invisible
+               hover:bg-accent hover:text-bg hover:shadow-[0_0_30px_rgba(0,229,255,0.6)] hover:scale-110">
+  
+  <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"></path>
+  </svg>
+</button>
 
-<footer class="py-6 text-center text-sm text-gray-500">
-  © 2026 Thadiya. All rights reserved.
+
+<footer class="py-10 flex justify-center relative z-10 -mt-5">
+  <div class="px-10 py-4
+              bg-glass backdrop-blur-xl
+              border border-border
+              rounded-full
+              text-sm text-gray-400 shadow-[0_0_20px_rgba(0,0,0,0.3)]">
+    © 2026 Ravindu Layanga. All rights reserved.
+  </div>
+</footer>
 </footer>
 
 
@@ -1064,6 +1155,90 @@
   // Start the initial timer
   resetAutoScroll();
 
+ const reveals = document.querySelectorAll(".reveal");
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  reveals.forEach(el => observer.observe(el));
+
+  /* --- TYPEWRITER EFFECT --- */
+const textElement = document.getElementById("typewriter");
+const phrases = [
+  "Software Engineer",
+  "Fresh Graduate",
+  "Full Stack Developer",
+  "React & Java Enthusiast"
+];
+
+let phraseIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+let typeSpeed = 100;
+
+function type() {
+  const currentPhrase = phrases[phraseIndex];
+  
+  if (isDeleting) {
+    // Remove characters
+    textElement.textContent = currentPhrase.substring(0, charIndex - 1);
+    charIndex--;
+    typeSpeed = 50; // Deleting is faster
+  } else {
+    // Add characters
+    textElement.textContent = currentPhrase.substring(0, charIndex + 1);
+    charIndex++;
+    typeSpeed = 100; // Typing is normal speed
+  }
+
+  if (!isDeleting && charIndex === currentPhrase.length) {
+    // Finished typing the phrase, wait a bit
+    isDeleting = true;
+    typeSpeed = 2000; // Pause at the end for 2 seconds
+  } else if (isDeleting && charIndex === 0) {
+    // Finished deleting, move to next phrase
+    isDeleting = false;
+    phraseIndex = (phraseIndex + 1) % phrases.length;
+    typeSpeed = 500; // Pause before starting new word
+  }
+
+  setTimeout(type, typeSpeed);
+}
+
+// Start the effect when page loads
+document.addEventListener('DOMContentLoaded', type);
+
+/* --- SCROLL TO TOP LOGIC --- */
+const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+window.addEventListener("scroll", () => {
+  // Show button if page is scrolled down more than 500px
+  if (window.scrollY > 500) {
+    scrollTopBtn.classList.remove("opacity-0", "translate-y-10", "invisible");
+    scrollTopBtn.classList.add("opacity-100", "translate-y-0");
+  } else {
+    // Hide button
+    scrollTopBtn.classList.add("opacity-0", "translate-y-10", "invisible");
+    scrollTopBtn.classList.remove("opacity-100", "translate-y-0");
+  }
+});
+
+// Smooth scroll to top when clicked
+scrollTopBtn.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
+
 </script>
 
 
@@ -1075,5 +1250,7 @@
     </svg>
     <span>Live Demo</span>
   </a>  -->
+
+ 
 </body>
 </html>
