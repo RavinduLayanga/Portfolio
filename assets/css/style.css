@@ -49,18 +49,28 @@ body {
 }
 
 @keyframes float {
-  0% { transform: translate(0, 0); }
-  50% { transform: translate(80px, -60px); }
-  100% { transform: translate(0, 0); }
+  0% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(80px, -60px);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
 }
 
 @keyframes morph {
   0% {
     border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
   }
+
   50% {
     border-radius: 58% 42% 30% 70% / 55% 65% 35% 45%;
   }
+
   100% {
     border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
   }
@@ -121,14 +131,14 @@ body {
   padding: 0.5rem 0.9rem;
   border-radius: 999px;
   font-size: 0.9rem;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   color: #e5e7eb;
   transition: all 0.25s ease;
 }
 
 .skill-pill:hover {
-  background: rgba(255,255,255,0.15);
+  background: rgba(255, 255, 255, 0.15);
   border-color: var(--color-primary);
   transform: translateY(-2px);
 }
@@ -138,8 +148,8 @@ body {
    PROJECT CARDS
 ================================ */
 .project-card {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 1.25rem;
   padding: 2rem;
   width: 100%;
@@ -156,9 +166,9 @@ body {
 }
 
 .project-card:hover {
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
   z-index: 20;
-  box-shadow: 0 30px 60px -15px rgba(0,0,0,0.55);
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.55);
   border-color: var(--color-primary);
 }
 
@@ -166,8 +176,8 @@ body {
   padding: 0.35rem 0.7rem;
   font-size: 0.8rem;
   border-radius: 999px;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   color: #e5e7eb;
 }
 
@@ -197,7 +207,7 @@ body {
   width: 10px;
   height: 10px;
   border-radius: 999px;
-  background: rgba(255,255,255,0.3);
+  background: rgba(255, 255, 255, 0.3);
   cursor: pointer;
   transition: all 0.3s ease;
 }

@@ -145,7 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
       resetAutoScroll();
     });
 
-  
+
     function initCarousel() {
       createDots();
       resetAutoScroll();
