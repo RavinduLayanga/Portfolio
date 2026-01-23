@@ -182,10 +182,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (textElement) {
     const phrases = [
+      "Full Stack Software Engineer",
       "Software Engineer",
-      "Fresh Graduate",
-      "Full Stack Developer",
-      "React & Java Enthusiast",
+      "BSc(Hons) CS Graduate",
+      "Problem Solver",
     ];
 
     let phraseIndex = 0;
