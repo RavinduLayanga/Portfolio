@@ -16,10 +16,23 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
+
+/* Prevent the "Bigger than screen" effect */
+html, body {
+  width: 100%;
+  overflow-x: hidden; 
+  position: relative;
+  margin: 0;
+  padding: 0;
   font-family: 'Inter', sans-serif;
 }
 
+/* Ensure the animated blobs don't push the page width */
+.fixed.inset-0 {
+  pointer-events: none;
+  width: 100vw;
+  overflow: hidden;
+}
 
 /* ===============================
    BACKGROUND BLOBS
@@ -30,6 +43,7 @@ body {
   height: 520px;
   filter: blur(120px);
   opacity: 0.35;
+  will-change: transform;
   animation:
     float 22s ease-in-out infinite,
     morph 18s ease-in-out infinite;
