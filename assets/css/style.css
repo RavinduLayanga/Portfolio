@@ -17,7 +17,6 @@ html {
 }
 
 
-/* Prevent the "Bigger than screen" effect */
 html, body {
   width: 100%;
   overflow-x: hidden; 
