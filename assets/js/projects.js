@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const card = document.createElement("div");
     card.className = "project-card snap-start w-full md:w-[420px]";
 
-    // Logic: Only create the Live Demo button if 'live' property exists
+    //Only create the Live Demo button if 'live' property exists
     const liveButtonHtml = project.live
       ? `
         <a href="${project.live}" target="_blank"
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
       : "";
 
     card.innerHTML = `
-      </h3><h3 class="text-2xl font-semibold min-h-[64px] flex items-end">${project.title}</h3>
+      <h3 class="text-2xl font-semibold min-h-[64px] flex items-end">${project.title}</h3>
       <p class="mt-4 text-gray-300 text-sm leading-relaxed">${project.description}</p>
 
       <div class="mt-4 flex flex-wrap gap-2">
