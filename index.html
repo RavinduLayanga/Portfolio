@@ -14,9 +14,9 @@
   <meta name="robots" content="index, follow" />
 
 <link rel="icon" href="./favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="./icon-v2.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./icon-v2.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./icon-v2.png">
 <link rel="manifest" href="./site.webmanifest">
   <title>Ravindu Layanga | Software Engineer</title>
 
@@ -417,14 +417,14 @@
           <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold">
             Let’s <span class="text-primary">Connect</span>
           </h2>
-
+  
           <!-- Description -->
           <p class="mt-6 text-base sm:text-lg text-gray-400 max-w-xl sm:max-w-2xl mx-auto leading-relaxed">
             I’m open to <strong class="text-white">internship and junior software engineer roles</strong>,
             as well as collaborative opportunities.
             Feel free to reach out if you’d like to work together or discuss a project.
           </p>
-
+  
           <!-- Actions -->
           <div class="mt-10 sm:mt-12 flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-6">
             <!-- Email -->
@@ -432,7 +432,7 @@
               class="group relative overflow-hidden flex items-center justify-center gap-3 px-7 py-4 sm:px-9 rounded-xl font-medium text-white border border-accent bg-transparent transition-all duration-300 ease-out hover:shadow-[0_0_40px_rgba(0,229,255,0.6)] hover:scale-105">
               <span
                 class="absolute inset-0 bg-accent transform origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
-
+  
               <span class="relative z-10 flex items-center gap-3 group-hover:text-bg">
                 <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
                   <path
@@ -441,13 +441,13 @@
                 <span>Email</span>
               </span>
             </a>
-
+  
             <!-- LinkedIn -->
             <a href="https://www.linkedin.com/in/ravindulayanga/" target="_blank"
               class="group relative overflow-hidden flex items-center justify-center gap-3 px-7 py-4 sm:px-9 rounded-xl font-medium text-white border border-accent bg-transparent transition-all duration-300 ease-out hover:shadow-[0_0_40px_rgba(0,229,255,0.6)] hover:scale-105">
               <span
                 class="absolute inset-0 bg-accent transform origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
-
+  
               <span class="relative z-10 flex items-center gap-3 group-hover:text-bg">
                 <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
                   <path
@@ -456,13 +456,13 @@
                 <span>LinkedIn</span>
               </span>
             </a>
-
+  
             <!-- GitHub -->
             <a href="https://github.com/RavinduLayanga" target="_blank"
               class="group relative overflow-hidden flex items-center justify-center gap-3 px-7 py-4 sm:px-9 rounded-xl font-medium text-white border border-accent bg-transparent transition-all duration-300 ease-out hover:shadow-[0_0_40px_rgba(0,229,255,0.6)] hover:scale-105">
               <span
                 class="absolute inset-0 bg-accent transform origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
-
+  
               <span class="relative z-10 flex items-center gap-3 group-hover:text-bg">
                 <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
                   <path
@@ -476,28 +476,30 @@
       </div>
     </div>
   </section>
-
+  
   <button id="scrollTopBtn"
     class="fixed bottom-6 right-6 sm:bottom-10 sm:right-10 z-50 p-3 sm:p-4 rounded-full bg-white/5 border border-accent/20 backdrop-blur-lg text-accent shadow-lg transition-all duration-500 ease-out opacity-0 translate-y-10 invisible hover:bg-accent hover:text-bg hover:shadow-[0_0_30px_rgba(0,229,255,0.6)] hover:scale-110">
-    <svg class="w-[22px] h-[22px] sm:w-6 sm:h-6" fill="none" stroke="currentColor" stroke-width="2.5"
-      viewBox="0 0 24 24">
+    <svg class="w-[22px] h-[22px] sm:w-6 sm:h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"></path>
     </svg>
   </button>
-
+  
   <footer class="py-8 sm:py-10 flex justify-center relative z-10">
-    <div
-      class="px-6 py-3 sm:px-10 sm:py-4 bg-glass backdrop-blur-xl border border-border rounded-full text-xs sm:text-sm text-gray-400 text-center shadow-[0_0_20px_rgba(0,0,0,0.3)]">
-      © Ravindu Layanga. All rights reserved.
+    <div class="text-sm text-gray-400 text-center">
+      © <span id="year"></span> Ravindu Layanga. All rights reserved.
     </div>
   </footer>
-
+  
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+  
   <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
   <script src="assets/js/finisher-header.js"></script>
   <script src="finisher-header.es5.min.js" type="text/javascript"></script>
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
   <script src="assets/js/projects.js"></script>
   <script src="assets/js/main.js"></script>
-</body>
-
-</html>
+  </body>
+  
+  </html>
