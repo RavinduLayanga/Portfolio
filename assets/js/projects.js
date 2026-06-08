@@ -1,11 +1,11 @@
 const projects = [
   {
-    title: "Personal Portfolio Website",
+    title: "SmartNotes AI",
     description:
-      "A modern, responsive portfolio website built to showcase projects and experience, with a focus on clean UI architecture, performance, and maintainable design patterns.",
-    tags: ["HTML", "CSS ", "JavaScript", "Tailwind CSS", "UI Architecture"],
-    github: "https://github.com/RavinduLayanga/portfolio",
-    live: "https://ravindulayanga.dev"
+      "Built a full-stack Next.js 16 application featuring integrated AI-powered note summarization, secure Google OAuth, and a serverless Neon PostgreSQL database.",
+    tags: ["Next.js 16", "Auth.js", "Neon PostgreSQL", "Tailwind CSS"],
+    github: "https://github.com/RavinduLayanga/SmartNotes-Ai",
+    live: "https://smart-notes-ai-gold.vercel.app/",
   },
   {
     title: "MixCap – Multimodal Captioning System",
@@ -14,27 +14,28 @@ const projects = [
     tags: ["Python", "PyTorch", "Deep Learning", "Multimodal Models"],
     github: "https://github.com/RavinduLayanga/mixcap-multimodal-captioning",
   },
-   {
+  {
     title: "MixCap Web Platform",
     description:
       "A full-stack web application that deploys a multimodal captioning model through a RESTful API, providing a user-friendly interface for model interaction and evaluation.",
     tags: ["Flask", "REST APIs", "React", "Full Stack"],
     github: "https://github.com/RavinduLayanga/mixcap-web-platform",
   },
-  
-    {
+
+  {
     title: "Skin Consultation Management System",
     description:
       "A full-stack web application designed to manage online consultations, appointments, and user roles using a structured MVC-based architecture.",
     tags: ["Full Stack", "MVC", "Database Design", "Java"],
-    github: "https://github.com/RavinduLayanga/Skin-Consultation-Management-System",
+    github:
+      "https://github.com/RavinduLayanga/Skin-Consultation-Management-System",
   },
   {
-    title: "Fuel Management System",
+    title: "MediTrack – Pharmacy Management System",
     description:
-      "An enterprise-style management system built to manage fuel distribution records, user roles, and database-driven workflows with a focus on reliability and data consistency.",
-    tags: ["Backend Development", "Databases", "CRUD", "System Design"],
-    github: "https://github.com/RavinduLayanga/Fuel-Management-System",
+      "Developed a Java and MySQL-based application to streamline pharmaceutical inventory tracking, sales processing, and secure user authentication.",
+    tags: ["Java", "MySQL", "OOP Principles", "CRUD", "System Design"],
+    github: "https://github.com/RavinduLayanga/MediTrack",
   },
   {
     title: "Hybrid Employee Attrition Predictor",
@@ -42,9 +43,8 @@ const projects = [
       "A machine learning system designed to predict employee attrition using data preprocessing, feature engineering, and predictive modeling techniques.",
     tags: ["Python", "Machine Learning", "Scikit-learn", "Data Analysis"],
     github: "https://github.com/RavinduLayanga/hybrid-attrition-predictor",
-  }
+  },
 ];
-
 
 document.addEventListener("DOMContentLoaded", () => {
   const carousel = document.getElementById("projectCarousel");
