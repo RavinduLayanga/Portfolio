@@ -129,13 +129,18 @@ html.lenis, html.lenis body {
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 1.25rem;
   padding: 2rem;
+
   width: 100%;
   max-width: 420px;
+  min-height: 400px;
+
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
+
   position: relative;
   z-index: 1;
+
   transition:
     background-color 0.3s ease,
     box-shadow 0.3s ease,

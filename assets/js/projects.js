@@ -1,47 +1,70 @@
 const projects = [
   {
+    title: "LSF Train Seat Booking System",
+    description:
+      "A full-stack train seat reservation system built to handle concurrent booking requests safely. Implemented a Java REST API with Javalin and JDBC, PostgreSQL transactions, row-level locking, and database-driven seat availability to prevent double booking.",
+    tags: [
+      "Java",
+      "Javalin",
+      "React",
+      "PostgreSQL",
+      "JDBC",
+      "REST API",
+      "Transactions",
+      "Concurrency",
+      "Docker",
+    ],
+    github: "https://github.com/RavinduLayanga/segment-seat-booking-system",
+  },
+  {
     title: "SmartNotes AI",
     description:
-      "Built a full-stack Next.js 16 application featuring integrated AI-powered note summarization, secure Google OAuth, and a serverless Neon PostgreSQL database.",
-    tags: ["Next.js 16", "Auth.js", "Neon PostgreSQL", "Tailwind CSS"],
+      "A full-stack AI-powered note-taking application built with Next.js 16, featuring Google authentication, persistent note storage with Neon PostgreSQL, and AI-powered note summarization. Deployed as a production web application on Vercel.",
+    tags: [
+      "Next.js 16",
+      "Auth.js",
+      "Neon PostgreSQL",
+      "Tailwind CSS",
+      "AI",
+      "Vercel",
+    ],
     github: "https://github.com/RavinduLayanga/SmartNotes-Ai",
     live: "https://smart-notes-ai-gold.vercel.app/",
   },
   {
     title: "MixCap – Multimodal Captioning System",
     description:
-      "A research-driven deep learning system that generates captions by jointly learning from visual and textual inputs, focusing on multimodal feature fusion and representation learning.",
+      "A research-driven multimodal deep learning system that generates captions by jointly learning from visual and textual inputs. The project explores multimodal feature fusion and representation learning using PyTorch.",
     tags: ["Python", "PyTorch", "Deep Learning", "Multimodal Models"],
     github: "https://github.com/RavinduLayanga/mixcap-multimodal-captioning",
   },
   {
     title: "MixCap Web Platform",
     description:
-      "A full-stack web application that deploys a multimodal captioning model through a RESTful API, providing a user-friendly interface for model interaction and evaluation.",
-    tags: ["Flask", "REST APIs", "React", "Full Stack"],
+      "The web application component of the MixCap project, providing a user-friendly interface for interacting with and evaluating the multimodal captioning model through a Flask REST API and React frontend.",
+    tags: ["React", "Flask", "REST API", "Python", "Full Stack"],
     github: "https://github.com/RavinduLayanga/mixcap-web-platform",
   },
-
   {
     title: "Skin Consultation Management System",
     description:
-      "A full-stack web application designed to manage online consultations, appointments, and user roles using a structured MVC-based architecture.",
-    tags: ["Full Stack", "MVC", "Database Design", "Java"],
+      "A full-stack web application for managing online consultations, appointments, and user roles, developed with a structured application architecture and database-driven functionality.",
+    tags: ["Full Stack", "Java", "Database Design", "MVC"],
     github:
       "https://github.com/RavinduLayanga/Skin-Consultation-Management-System",
   },
   {
     title: "MediTrack – Pharmacy Management System",
     description:
-      "Developed a Java and MySQL-based application to streamline pharmaceutical inventory tracking, sales processing, and secure user authentication.",
-    tags: ["Java", "MySQL", "OOP Principles", "CRUD", "System Design"],
+      "A Java and MySQL-based pharmacy management application designed to support pharmaceutical inventory management, sales processing, and user authentication.",
+    tags: ["Java", "MySQL", "OOP", "CRUD"],
     github: "https://github.com/RavinduLayanga/MediTrack",
   },
   {
     title: "Hybrid Employee Attrition Predictor",
     description:
-      "A machine learning system designed to predict employee attrition using data preprocessing, feature engineering, and predictive modeling techniques.",
-    tags: ["Python", "Machine Learning", "Scikit-learn", "Data Analysis"],
+      "A machine learning system for predicting employee attrition using data preprocessing, feature engineering, class-imbalance handling, and predictive modeling techniques.",
+    tags: ["Python", "Scikit-learn", "Machine Learning", "Data Analysis"],
     github: "https://github.com/RavinduLayanga/hybrid-attrition-predictor",
   },
 ];

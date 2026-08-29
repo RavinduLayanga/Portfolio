@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-
   /* ===============================
      1. PARTICLES BACKGROUND 
   ================================ */
@@ -7,70 +6,70 @@ document.addEventListener("DOMContentLoaded", () => {
     tsParticles.load("tsparticles", {
       fpsLimit: 60,
       background: {
-        color: "#000000", 
+        color: "#000000",
       },
       particles: {
         number: {
-          value: 60, 
-          density: { enable: true, area: 800 }
+          value: 60,
+          density: { enable: true, area: 800 },
         },
         color: {
-          value: ["#6c63ff", "#00e5ff", "#ffffff", "#a78bfa", "#1e40af"] 
+          value: ["#6c63ff", "#00e5ff", "#ffffff", "#a78bfa", "#1e40af"],
         },
         shape: {
-          type: "circle"
+          type: "circle",
         },
         opacity: {
           value: 0.8,
-          random: true, 
+          random: true,
           anim: {
             enable: true,
             speed: 1,
             opacity_min: 0.1,
-            sync: false
-          }
+            sync: false,
+          },
         },
         size: {
-          value: { min: 3, max: 5 }, 
+          value: { min: 3, max: 5 },
           random: true,
           anim: {
             enable: true,
             speed: 2,
             size_min: 0.3,
-            sync: false
-          }
+            sync: false,
+          },
         },
         move: {
           enable: true,
-          speed: 0.5, 
-          direction: "none", 
+          speed: 0.5,
+          direction: "none",
           random: true,
           straight: false,
-          outModes: "out"
+          outModes: "out",
         },
-        links: { enable: false } 
+        links: { enable: false },
       },
       interactivity: {
         events: {
           onHover: {
             enable: true,
-            mode: "bubble" 
+            mode: "bubble",
           },
           onClick: {
             enable: true,
-            mode: "push" 
-          }
+            mode: "push",
+          },
         },
         modes: {
           bubble: {
             distance: 200,
-            size: 7, 
+            size: 7,
             duration: 2,
-            opacity: 1
-          }
-        }
+            opacity: 1,
+          },
+        },
       },
-      detectRetina: true
+      detectRetina: true,
     });
   }
 
@@ -91,16 +90,15 @@ document.addEventListener("DOMContentLoaded", () => {
   let sectionPositions = [];
 
   function cacheSectionPositions() {
-    sectionPositions = Array.from(sections).map(section => ({
+    sectionPositions = Array.from(sections).map((section) => ({
       id: section.getAttribute("id"),
-      top: section.offsetTop - 10, 
-      bottom: section.offsetTop + section.offsetHeight - 10
+      top: section.offsetTop - 10,
+      bottom: section.offsetTop + section.offsetHeight - 10,
     }));
   }
 
   cacheSectionPositions();
-  window.addEventListener('resize', cacheSectionPositions);
-
+  window.addEventListener("resize", cacheSectionPositions);
 
   /* ===============================
      4. ACTIVE LINK LOGIC
@@ -111,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (isClickScrolling) return;
 
     const scrollY = window.scrollY;
-    const triggerPoint = scrollY + 100; 
+    const triggerPoint = scrollY + 100;
 
     let currentId = "";
 
@@ -121,7 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    navLinks.forEach(link => {
+    navLinks.forEach((link) => {
       link.classList.remove("active");
       if (link.getAttribute("href") === "#" + currentId) {
         link.classList.add("active");
@@ -131,39 +129,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.addEventListener("scroll", setActiveLink);
 
-
   /* ===============================
      5. CLICK HANDLER 
   ================================ */
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
       e.preventDefault();
-      const targetId = this.getAttribute('href').substring(1);
+      const targetId = this.getAttribute("href").substring(1);
       if (!targetId) return;
 
-      const cachedSection = sectionPositions.find(s => s.id === targetId);
+      const cachedSection = sectionPositions.find((s) => s.id === targetId);
       if (!cachedSection) return;
 
       isClickScrolling = true;
 
-      navLinks.forEach(link => link.classList.remove("active"));
+      navLinks.forEach((link) => link.classList.remove("active"));
       this.classList.add("active");
 
       const distance = Math.abs(cachedSection.top - window.scrollY);
       let duration = distance < 1000 ? 0.6 : 1.0;
 
       lenis.scrollTo(cachedSection.top, {
-        offset: 0, 
-        duration: duration, 
+        offset: 0,
+        duration: duration,
         lock: false,
         force: true,
         onComplete: () => {
           isClickScrolling = false;
-        }
+        },
       });
     });
   });
-
 
   /* ===============================
      6. SCROLL TO TOP & UI LOGIC
@@ -195,7 +191,7 @@ document.addEventListener("DOMContentLoaded", () => {
     mobileMenu.classList.toggle("hidden");
   });
 
-  mobileMenu?.querySelectorAll("a").forEach(link => {
+  mobileMenu?.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
       mobileMenu.classList.add("hidden");
     });
@@ -245,7 +241,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function updateDots() {
       if (isMobile()) return;
       [...dotsContainer.children].forEach((dot, i) =>
-        dot.classList.toggle("active", i === currentPage)
+        dot.classList.toggle("active", i === currentPage),
       );
     }
 
@@ -288,7 +284,7 @@ document.addEventListener("DOMContentLoaded", () => {
       createDots();
       goToPage(0);
       resetAutoScroll();
-      cacheSectionPositions(); 
+      cacheSectionPositions();
     });
 
     function initCarousel() {
@@ -304,20 +300,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- REVEAL ON SCROLL ---
   const reveals = document.querySelectorAll(".reveal");
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("active");
-        observer.unobserve(entry.target); 
-      }
-    });
-  }, { threshold: 0.15 });
-  reveals.forEach(el => observer.observe(el));
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 },
+  );
+  reveals.forEach((el) => observer.observe(el));
 
   // --- TYPEWRITER EFFECT ---
   const textElement = document.getElementById("typewriter");
   if (textElement) {
-    const phrases = ["Full Stack Software Engineer", "Software Engineer", "BSc(Hons) CS Graduate", "Problem Solver"];
+    const phrases = [
+      "Full Stack Software Engineer",
+      "Backend Developer",
+      "Software Engineer",
+      "AI & ML Enthusiast",
+    ];
     let phraseIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
@@ -368,7 +372,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // B. Scroll Direction Check
       if (currentScrollY > lastScrollY) {
         mobileNav.style.transform = "translateY(-200%)";
-        
+
         // Close menu if open
         const mobileMenu = document.getElementById("mobileMenu");
         if (mobileMenu && !mobileMenu.classList.contains("hidden")) {
@@ -382,5 +386,4 @@ document.addEventListener("DOMContentLoaded", () => {
       lastScrollY = currentScrollY;
     });
   }
-  
 });
